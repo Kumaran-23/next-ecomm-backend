@@ -4,4 +4,3 @@ let prisma = new PrismaClient()
 
 export default prisma
 
-//testing testing 
