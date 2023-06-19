@@ -11,7 +11,7 @@ async function cleanupDatabase() {
   );
 }
 
-describe("POST /sign-in", () => {
+describe("POST /auth", () => {
   const user = {
     name: 'John',
     email: 'john9@example.com',
@@ -33,7 +33,7 @@ describe("POST /sign-in", () => {
       .send(user)
       .set('Accept', 'application/json')
     const response = await request(app)
-      .post("/sign-in")
+      .post("/auth")
       .send(user)
       .set('Accept', 'application/json')
     expect(response.statusCode).toBe(200);
@@ -47,7 +47,7 @@ describe("POST /sign-in", () => {
       .send(user)
       .set('Accept', 'application/json')
     const response = await request(app)
-      .post("/sign-in")
+      .post("/auth")
       .send(user)
       .set('Accept', 'application/json')
     expect(response.statusCode).toBe(401);
@@ -62,7 +62,7 @@ describe("POST /sign-in", () => {
       .send(user)
       .set('Accept', 'application/json')
     const response = await request(app)
-      .post("/sign-in")
+      .post("/auth")
       .send(user)
       .set('Accept', 'application/json')
     expect(response.statusCode).toBe(401);

@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "npx dotenv -e .env.test prisma migrate deploy && npx dotenv -e .env.test jest -i",
-    "start": "npx dotenv -e .env.development node index.js",
-    "start:dev": "npx dotenv -e .env.development nodemon index.js"
+    "start": "npx dotenv -e .env.development node server.js",
+    "start:dev": "npx dotenv -e .env.development nodemon server.js"
   },
   "keywords": [],
   "author": "",
