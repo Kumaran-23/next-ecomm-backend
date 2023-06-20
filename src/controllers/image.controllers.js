@@ -25,3 +25,5 @@ router.post('/', async (req, res) => {
     throw err
   })
 })
+
+export default router;
