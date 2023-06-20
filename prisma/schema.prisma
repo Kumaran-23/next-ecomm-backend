@@ -15,4 +15,16 @@ model User {
   name     String?
   email    String  @unique
   password String?
+  image    Image[]
+}
+
+model Image {
+  id  Int   @id @default(autoincrement())
+  user   User?   @relation(fields: [userId], references: [id])
+  userId Int
+  uploaded_at DateTime @default(now())
+  price Float 
+  title String
+  discription String?
+  url String  @unique
 }
