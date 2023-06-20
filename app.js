@@ -3,6 +3,7 @@ import cors from "cors"
 import userRouter from "./src/controllers/users.controllers.js"
 import authRouter from "./src/controllers/auth.controllers.js"
 import morgan from "morgan"
+import auth from "./src/middleware/auth.js"
 
 const app = express()
 app.use(express.json())
@@ -12,5 +13,9 @@ app.use(morgan('combined'))
 
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
+
+app.get('/protected', auth, (req, res) => {
+  res.json({ "hello": "world" })
+})
 
 export default app;
