@@ -1,14 +1,18 @@
 import express from 'express'
 import { Prisma } from "@prisma/client"
 import prisma from "../utils/prisma.js"
-import router from './users.controllers.js'
+import auth from '../middleware/auth.js'
 const router = express.Router()
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     const data = req.body;
 
+
     prisma.image.create({
-        data
+        data:{
+            ...data,
+            userId: req.user.payload.id
+        }
     }).then(image => {
         return res.json(image);
         
