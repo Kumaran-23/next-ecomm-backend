@@ -3,6 +3,7 @@ import prisma from "../utils/prisma.js"
 import bcrypt from "bcryptjs"
 import { validateAuth } from "../validators/auth.js"
 import { signAccessToken } from "../utils/jwt.js"
+import { filter } from "../utils/common.js"
 
 const router = express.Router();
 
@@ -31,7 +32,8 @@ router.post('/', async (req, res) => {
   })
 
   const accessToken = await signAccessToken(user)
-  return res.json({ accessToken })
+  const userId = user.id
+  return res.json({ accessToken, userId })
 })
 
 export default router

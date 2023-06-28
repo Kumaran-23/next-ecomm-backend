@@ -20,7 +20,8 @@
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "npm": "^9.7.1",
-    "prisma": "^4.15.0"
+    "prisma": "^4.15.0",
+    "stripe": "^12.10.0"
   },
   "description": "",
   "devDependencies": {
